@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Subsc services" %>
+
+<h1>Subsc services</h1>
+
+<div id="subsc_services">
+  <% @subsc_services.each do |subsc_service| %>
+    <%= render subsc_service %>
+    <p>
+      <%= link_to "Show this subsc service", subsc_service %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New subsc service", new_subsc_service_path %>

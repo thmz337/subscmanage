@@ -1,0 +1,2 @@
+class SubscService < ApplicationRecord
+end
