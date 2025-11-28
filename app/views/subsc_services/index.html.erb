@@ -1,8 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Subsc services" %>
+<% content_for :title, "サービス一覧" %>
 
-<h1>Subsc services</h1>
+<h1>サービス一覧</h1>
+
+<h2>今月の支払い予定金額：<%= @this_month_payment %>円</h2>
 
 <div id="subsc_services">
   <% @subsc_services.each do |subsc_service| %>

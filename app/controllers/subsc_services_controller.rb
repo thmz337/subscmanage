@@ -3,6 +3,12 @@ class SubscServicesController < ApplicationController
 
   def index
     @subsc_services = SubscService.all
+    @subsc_services.each do |service|
+      if service.next_payment < Date.today
+        service.update({ next_payment: service.next_payment >> service.payment_interval })
+      end
+    end
+    @this_month_payment = this_month_payment(@subsc_services)
   end
 
   def show
@@ -58,5 +64,9 @@ class SubscServicesController < ApplicationController
 
     def subsc_service_params
       params.expect(subsc_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price ])
+    end
+
+    def this_month_payment(serivces)
+      serivces.filter { |service| service.next_payment.month == Date.today.month }.map { |service| service.price }.sum
     end
 end
