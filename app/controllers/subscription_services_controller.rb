@@ -1,0 +1,72 @@
+class SubscriptionServicesController < ApplicationController
+  before_action :set_subscription_service, only: %i[ show edit update destroy ]
+
+  def index
+    @subscription_services = SubscriptionService.all
+    @subscription_services.each do |service|
+      if service.next_payment < Date.today
+        service.update({ next_payment: service.next_payment >> service.payment_interval })
+      end
+    end
+    @this_month_payment = this_month_payment(@subscription_services)
+  end
+
+  def show
+  end
+
+  def new
+    @subscription_service = SubscriptionService.new
+  end
+
+  def edit
+  end
+
+  def create
+    @subscription_service = SubscriptionService.new(subscription_service_params)
+
+    respond_to do |format|
+      if @subscription_service.save
+        format.html { redirect_to @subscription_service, notice: "Subsc service was successfully created." }
+        format.json { render :show, status: :created, location: @subscription_service }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @subscription_service.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /subscription_services/1 or /subscription_services/1.json
+  def update
+    respond_to do |format|
+      if @subscription_service.update(subscription_service_params)
+        format.html { redirect_to @subscription_service, notice: "Subsc service was successfully updated.", status: :see_other }
+        format.json { render :show, status: :ok, location: @subscription_service }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @subscription_service.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @subscription_service.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to subscription_services_path, notice: "Subsc service was successfully destroyed.", status: :see_other }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    def set_subscription_service
+      @subscription_service = SubscriptionService.find(params.expect(:id))
+    end
+
+    def subscription_service_params
+      params.expect(subscription_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price ])
+    end
+
+    def this_month_payment(serivces)
+      serivces.filter { |service| service.next_payment.month == Date.today.month }.map { |service| service.price }.sum
+    end
+end

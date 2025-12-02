@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
-      subsc_service: サービス
+      subscription_service: サービス
     attributes:
-      subsc_service:
+      subscription_service:
         name: サービス名
         next_payment: 次回支払日
         payment_interval: 支払間隔
@@ -16,7 +16,7 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
       models:
-        subsc_service:
+        subscription_service:
           attributes:
             next_payment:
               greater_than_or_equal_to: は今日以降の日付を入力してください
@@ -30,7 +30,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -56,7 +56,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月

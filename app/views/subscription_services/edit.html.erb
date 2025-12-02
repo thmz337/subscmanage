@@ -1,0 +1,12 @@
+<% content_for :title, "Editing subscription service" %>
+
+<h1>Editing subscription service</h1>
+
+<%= render "form", subscription_service: @subscription_service %>
+
+<br>
+
+<div>
+  <%= link_to "Show this subscription service", @subscription_service %> |
+  <%= link_to "Back to subscription services", subscription_services_path %>
+</div>
