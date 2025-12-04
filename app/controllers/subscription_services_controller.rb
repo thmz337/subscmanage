@@ -3,7 +3,7 @@ class SubscriptionServicesController < ApplicationController
   before_action :set_subscription_service, only: %i[ show edit update destroy ]
 
   def index
-    @subscription_services = SubscriptionService.all
+    @subscription_services = current_user.subscription_services
     @subscription_services.each do |service|
       if service.next_payment < Date.today
         service.update({ next_payment: service.next_payment >> service.payment_interval })
@@ -23,7 +23,8 @@ class SubscriptionServicesController < ApplicationController
   end
 
   def create
-    @subscription_service = SubscriptionService.new(subscription_service_params)
+    #@subscription_service = SubscriptionService.new(subscription_service_params)
+    @subscription_service = current_user.subscription_services.new(subscription_service_params)
 
     respond_to do |format|
       if @subscription_service.save

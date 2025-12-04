@@ -1,4 +1,6 @@
 class SubscriptionService < ApplicationRecord
+  belongs_to :user
+
   validates :name, presence: true
   validates :next_payment, comparison: { greater_than_or_equal_to: Date.today }
   validates :payment_interval, comparison: { greater_than: 0 }
