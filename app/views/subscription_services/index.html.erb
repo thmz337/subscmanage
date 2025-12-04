@@ -10,9 +10,9 @@
   <% @subscription_services.each do |service| %>
     <%= render service %>
     <p>
-      <%= link_to "Show this subscription service", service %>
+      <%= link_to "このサービスを表示する", service %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New subscription service", new_subscription_service_path %>
+<%= link_to "新しいサービスを作成する", new_subscription_service_path %>

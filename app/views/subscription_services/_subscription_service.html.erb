@@ -1,27 +1,27 @@
 <div id="<%= dom_id subscription_service %>">
   <div>
-    <strong>Name:</strong>
+    <strong>サービス名:</strong>
     <%= subscription_service.name %>
   </div>
 
   <div>
-    <strong>Next payment:</strong>
+    <strong>次回支払日:</strong>
     <%= subscription_service.next_payment %>
   </div>
 
   <div>
-    <strong>Payment interval:</strong>
+    <strong>支払間隔:</strong>
     <%= subscription_service.payment_interval %>
   </div>
 
   <div>
-    <strong>Payment unit:</strong>
-    <%= subscription_service.payment_unit %>
+    <strong>支払期間の単位:</strong>
+    <%= payment_unit_to_ja(subscription_service.payment_unit) %>
   </div>
 
   <div>
-    <strong>Price:</strong>
-    <%= subscription_service.price %>
+    <strong>金額:</strong>
+    <%= subscription_service.price %>円
   </div>
 
 </div>

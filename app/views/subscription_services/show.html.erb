@@ -3,8 +3,8 @@
 <%= render @subscription_service %>
 
 <div>
-  <%= link_to "Edit this subscription service", edit_subscription_service_path(@subscription_service) %> |
-  <%= link_to "Back to subscription services", subscription_services_path %>
+  <%= link_to "このサービスを編集する", edit_subscription_service_path(@subscription_service) %> |
+  <%= link_to "サービス一覧に戻る", subscription_services_path %>
 
-  <%= button_to "Destroy this subscription service", @subscription_service, method: :delete %>
+  <%= button_to "このサービスを削除する", @subscription_service, method: :delete %>
 </div>
