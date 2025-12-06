@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :subscription_services, dependent: :destroy
+
+  enum :role, [:general, :admin]
 end
