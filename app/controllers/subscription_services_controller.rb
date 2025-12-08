@@ -23,7 +23,6 @@ class SubscriptionServicesController < ApplicationController
   end
 
   def create
-    #@subscription_service = SubscriptionService.new(subscription_service_params)
     @subscription_service = current_user.subscription_services.new(subscription_service_params)
 
     respond_to do |format|
