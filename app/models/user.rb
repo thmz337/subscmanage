@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :subscription_services, dependent: :destroy
 
-  enum :role, [:general, :admin]
+  enum :role, [ :general, :admin ]
 end
