@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :subscription_services, dependent: :destroy
 
   enum :role, [ :general, :admin ]
+
+  def admin?
+    role == :admin
+  end
 end
