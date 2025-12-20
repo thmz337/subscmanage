@@ -1,0 +1,12 @@
+<% content_for :title, "Editing service preset" %>
+
+<h1>Editing service preset</h1>
+
+<%= render "form", admin_service_preset: @admin_service_preset %>
+
+<br>
+
+<div>
+  <%= link_to "Show this service preset", @admin_service_preset %> |
+  <%= link_to "Back to service presets", admin_service_presets_path %>
+</div>
