@@ -2,6 +2,8 @@ class ThisMonthPaymentReminderJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    puts "This month payment!"
+    User.find_each do |user|
+      PaymentMailer.with(user: user).this_month_payment.deliver_now
+    end
   end
 end
