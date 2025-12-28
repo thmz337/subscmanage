@@ -57,7 +57,7 @@ class SubscriptionServicesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def search
     @presets = Admin::ServicePreset.where("name ILIKE ?", "%#{params[:q]}%")
 
