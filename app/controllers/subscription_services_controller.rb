@@ -4,11 +4,6 @@ class SubscriptionServicesController < ApplicationController
 
   def index
     @subscription_services = current_user.subscription_services
-    @subscription_services.each do |service|
-      if service.next_payment < Date.today
-        service.update({ next_payment: service.next_payment >> service.payment_interval })
-      end
-    end
     @this_month_payment = this_month_payment(@subscription_services)
   end
 
