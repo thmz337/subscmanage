@@ -2,7 +2,7 @@
 
 service1:
   name: Youtube
-  next_payment: "2025-12-23"
+  next_payment: "2026-01-01"
   payment_interval: 1
   payment_unit: 0
   price: 550
