@@ -1,0 +1,12 @@
+<% content_for :title, "サービスの編集" %>
+
+<h1>サービスの編集</h1>
+
+<%= render "form", subscription_service: @subscription_service %>
+
+<br>
+
+<div>
+  <%= link_to "このサービスを表示する", @subscription_service %> |
+  <%= link_to "サービス一覧に戻る", subscription_services_path %>
+</div>

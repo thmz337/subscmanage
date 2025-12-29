@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @admin_service_preset %>
+
+<div>
+  <%= link_to "Edit this service preset", edit_admin_service_preset_path(@admin_service_preset) %> |
+  <%= link_to "Back to service presets", admin_service_presets_path %>
+
+  <%= button_to "Destroy this service preset", @admin_service_preset, method: :delete %>
+</div>

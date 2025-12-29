@@ -1,0 +1,6 @@
+<h1>今月の支払額は以下のとおりです。</h1>
+<% user.subscription_services.each do |service| %>
+  <p><%= service.name %></p>
+  <p><%= service.next_payment %></p>
+  <p><%= service.price %></p>
+<% end %>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Service presets" %>
+
+<h1>Service presets</h1>
+
+<div id="admin_service_presets">
+  <% @admin_service_presets.each do |admin_service_preset| %>
+    <%= render admin_service_preset %>
+    <p>
+      <%= link_to "Show this service preset", admin_service_preset %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New service preset", new_admin_service_preset_path %>
