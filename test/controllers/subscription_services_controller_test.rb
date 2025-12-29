@@ -2,11 +2,20 @@ require "test_helper"
 
 class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @subscription_service = subscription_services(:one)
+    @subscription_service = subscription_services(:service1)
+    @user = users(:thmz)
+    @params =
+    { next_payment: "2026-01-01",
+      name: "test",
+      payment_interval: 1,
+      payment_unit: "month",
+      price: 3000
+    }
+    sign_in @user
   end
 
   test "should get index" do
-    get subscription_services_url
+    get root_path
     assert_response :success
   end
 
@@ -16,11 +25,11 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create subscription_service" do
-    assert_difference("SubscService.count") do
-      post subscription_services_url, params: { subscription_service: { next_payment: @subscription_service.next_payment, name: @subscription_service.name, payment_interval: @subscription_service.payment_interval, payment_unit: @subscription_service.payment_unit, price: @subscription_service.price } }
+    assert_difference("SubscriptionService.count") do
+      post subscription_services_url, params: { subscription_service: @params }
     end
 
-    assert_redirected_to subscription_service_url(SubscService.last)
+    assert_redirected_to subscription_service_url(SubscriptionService.last)
   end
 
   test "should show subscription_service" do
@@ -34,12 +43,13 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update subscription_service" do
-    patch subscription_service_url(@subscription_service), params: { subscription_service: { next_payment: @subscription_service.next_payment, name: @subscription_service.name, payment_interval: @subscription_service.payment_interval, payment_unit: @subscription_service.payment_unit, price: @subscription_service.price } }
+    sign_in @user
+    patch subscription_service_url(@subscription_service), params: { subscription_service: @params }
     assert_redirected_to subscription_service_url(@subscription_service)
   end
 
   test "should destroy subscription_service" do
-    assert_difference("SubscService.count", -1) do
+    assert_difference("SubscriptionService.count", -1) do
       delete subscription_service_url(@subscription_service)
     end
 
