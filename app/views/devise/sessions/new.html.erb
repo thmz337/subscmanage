@@ -1,25 +1,27 @@
-<h2><%= t('devise.sessions.new.sign_in') %></h2>
+<h2 class="mx-auto max-w-sm p-6 order-first text-5xl font-bold text-stone-900 sm:text-6xl"><%= t('devise.sessions.new.sign_in') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field mx-auto max-w-sm p-6">
+    <%= f.label :email, class: "text-sm font-medium text-gray-700" %><br>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="field mx-auto max-w-sm p-6">
+    <%= f.label :password, class: "text-sm font-medium text-gray-700" %><br>
+    <%= f.password_field :password, autocomplete: "current-password", class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
+    <div class="field mx-auto max-w-sm p-6">
+      <%= f.check_box :remember_me, class: "size-5 rounded border-gray-300 shadow-sm" %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit t('devise.sessions.new.sign_in') %>
+  <div class="mx-auto max-w-sm p-6">
+    <div class="actions inline-flex items-center gap-2 rounded-lg border border-stone-300 px-4 py-2 font-medium shadow-sm focus:ring-2 focus:ring-pink-500 focus:outline-0">
+      <%= f.submit t('devise.sessions.new.sign_in') %>
+    </div>
   </div>
 <% end %>
 
