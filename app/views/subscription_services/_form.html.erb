@@ -14,8 +14,7 @@
   <div data-controller="autocomplete" data-autocomplete-url-value="/subscription_services/search" data-action="keydown.enter->preset#fill keydown.down->preset#select keydown.up->preset#select" role="combobox">
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name, data: { autocomplete_target: "input" } %>
-		<%= form.hidden_field :name, data: { autocomplete_target: "hidden" } %>
-		<ul class="list-group" data-autocomplete-target="results"></ul>
+	<ul class="list-group" data-autocomplete-target="results"></ul>
   </div>
 
   <div>

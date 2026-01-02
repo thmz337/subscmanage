@@ -1,6 +1,11 @@
-<h1>今月の支払額は以下のとおりです。</h1>
-<% user.subscription_services.each do |service| %>
+<p>今月の支払額は以下のとおりです。</p>
+
+<h2>合計金額</h2>
+<p><%= number_to_currency(@this_month_payment, format: "%n%u") %></p>
+
+<h2>各サービスの内訳</h2>
+<% @this_month_payment_services.each do |service| %>
   <p><%= service.name %></p>
   <p><%= service.next_payment %></p>
-  <p><%= service.price %></p>
+  <p><%= number_to_currency(service.price, format: "%n%u") %></p><br>
 <% end %>
