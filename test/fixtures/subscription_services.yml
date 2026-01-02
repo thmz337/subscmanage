@@ -15,3 +15,19 @@ service2:
   payment_unit: 0
   price: 1000
   user: thmz
+
+service3:
+  name: Youtube Premium
+  next_payment: "2025-12-31"
+  payment_interval: 1
+  payment_unit: 0
+  price: 1280
+  user: thmz
+
+service4:
+  name: ChatGPT(Business)
+  next_payment: "2026-01-01"
+  payment_interval: 1
+  payment_unit: 1
+  price: 2290
+  user: thmz
