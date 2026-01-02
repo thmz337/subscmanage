@@ -31,3 +31,19 @@ service4:
   payment_unit: 1
   price: 2290
   user: thmz
+
+service5:
+  name: Amazon Prime
+  next_payment: "2026-01-10"
+  payment_interval: 1
+  payment_unit: 0
+  price: 600
+  user: payment
+
+service6:
+  name: Disney+
+  next_payment: "2026-02-01"
+  payment_interval: 1
+  payment_unit: 0
+  price: 1140
+  user: payment
