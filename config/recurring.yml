@@ -12,10 +12,10 @@
 development:
   this_month_payment_remainder:
     class: "ThisMonthPaymentReminderJob"
-    schedule: 0 9 1 * * # begining of the month at 9 am
+    schedule: "* * * * *"
   next_payment_update:
     class: "NextPaymentUpdateJob"
-    schedule: every day at 0am
+    schedule: "* * * * *"
 
 production:
   clear_solid_queue_finished_jobs:

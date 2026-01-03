@@ -11,8 +11,6 @@ class User < ApplicationRecord
   end
 
   def this_month_payment_services
-    start_date = Date.today.beginning_of_month
-    end_date = start_date.end_of_month
-    subscription_services.where(next_payment: start_date..end_date)
+    subscription_services.filter { |service| service.next_payment.month == Date.today.month }
   end
 end

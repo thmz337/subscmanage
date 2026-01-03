@@ -12,3 +12,7 @@ kanrisya:
   email: kanri@subsc.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "subsc_test") %>
   role: 1
+
+payment:
+  email: payment@subsc.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "subsc_test") %>
