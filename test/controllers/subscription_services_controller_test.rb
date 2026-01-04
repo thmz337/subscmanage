@@ -4,12 +4,20 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @subscription_service = subscription_services(:service1)
     @user = users(:thmz)
-    @params =
-    { next_payment: "2026-01-01",
+    payment_date = Date.tomorrow
+    @params1 =
+    { next_payment: payment_date,
       name: "test",
       payment_interval: 1,
       payment_unit: "month",
       price: 3000
+    }
+    @params2 =
+    { next_payment: payment_date,
+      name: "test",
+      payment_interval: 1,
+      payment_unit: "year",
+      price: 36000
     }
     sign_in @user
   end
@@ -26,7 +34,7 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create subscription_service" do
     assert_difference("SubscriptionService.count") do
-      post subscription_services_url, params: { subscription_service: @params }
+      post subscription_services_url, params: { subscription_service: @params1 }
     end
 
     assert_redirected_to subscription_service_url(SubscriptionService.last)
@@ -43,8 +51,7 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update subscription_service" do
-    sign_in @user
-    patch subscription_service_url(@subscription_service), params: { subscription_service: @params }
+    patch subscription_service_url(@subscription_service), params: { subscription_service: @params2 }
     assert_redirected_to subscription_service_url(@subscription_service)
   end
 
