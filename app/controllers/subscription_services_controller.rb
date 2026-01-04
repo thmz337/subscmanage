@@ -4,7 +4,8 @@ class SubscriptionServicesController < ApplicationController
 
   def index
     @subscription_services = current_user.subscription_services
-    @this_month_payment = this_month_payment(@subscription_services)
+    this_month_payment_services = current_user.this_month_payment_services
+    @this_month_payment = this_month_payment_services.map { |service| service.price }.sum
   end
 
   def show
@@ -68,9 +69,5 @@ class SubscriptionServicesController < ApplicationController
 
     def subscription_service_params
       params.expect(subscription_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price ])
-    end
-
-    def this_month_payment(serivces)
-      serivces.filter { |service| service.next_payment.month == Date.today.month }.map { |service| service.price }.sum
     end
 end
