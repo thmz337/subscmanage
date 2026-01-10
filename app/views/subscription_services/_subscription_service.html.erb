@@ -21,7 +21,11 @@
 
   <div>
     <strong>金額:</strong>
-    <%= subscription_service.price %>円
+    <%= subscription_service.price %>
   </div>
 
+  <div>
+    <strong>通貨単位:</strong>
+    <%= monetary_unit_to_ja(subscription_service.monetary_unit) %>
+  </div>
 </div>

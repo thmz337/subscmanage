@@ -68,6 +68,6 @@ class SubscriptionServicesController < ApplicationController
     end
 
     def subscription_service_params
-      params.expect(subscription_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price ])
+      params.expect(subscription_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price, :monetary_unit ])
     end
 end
