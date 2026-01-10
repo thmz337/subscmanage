@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_10_082045) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_10_090846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "admin_service_presets", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.integer "monetary_unit"
     t.string "name"
     t.integer "payment_interval"
     t.integer "payment_unit"

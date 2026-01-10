@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :monetary_unit, style: "display: block" %>
+    <%= form.select :monetary_unit, [["円", "JPY"], ["$", "USD"]] %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

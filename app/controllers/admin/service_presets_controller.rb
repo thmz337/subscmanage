@@ -65,6 +65,6 @@ class Admin::ServicePresetsController < Admin::BaseController
 
     # Only allow a list of trusted parameters through.
     def admin_service_preset_params
-      params.expect(admin_service_preset: [ :name, :payment_interval, :payment_unit, :price ])
+      params.expect(admin_service_preset: [ :name, :payment_interval, :payment_unit, :price, :monetary_unit ])
     end
 end
