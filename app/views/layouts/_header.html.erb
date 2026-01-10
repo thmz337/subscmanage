@@ -1,0 +1,33 @@
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="flex h-16 items-center justify-between">
+    <div class="flex-1 md:flex md:items-center md:gap-12">
+      <a class="block" href="#">
+        <span class="sr-only">Home</span>
+        <div>サブスク管理</div>
+        </a>
+    </div>
+
+    <div class="md:flex md:items-center md:gap-12">
+      <div
+        data-controller="dropdown"
+        data-action="click@window->dropdown#hide touchstart@window->dropdown#hide keydown.up->dropdown#previousItem keydown.down->dropdown#nextItem keydown.esc->dropdown#hide"
+        class="inline-block relative">
+        <button data-action="dropdown#toggle:stop" class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <div data-dropdown-target="menu" class="hidden absolute top-4 right-0 z-10 mt-5  w-screen max-w-max">
+          <div class="text-sm bg-white shadow-lg rounded border overflow-hidden w-32">
+            <%= link_to "登録情報の変更", edit_user_registration_path, data: { dropdown_target: "menuItem" }, class: "no-underline block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap focus:bg-gray-100" %>
+            <% if current_user.admin? %>
+            <%= link_to "管理者画面へ", admin_root_path, data: { dropdown_target: "menuItem" }, class: "no-underline block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap focus:bg-gray-100" %>
+            <% end %>
+            <hr class="border-t">
+            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete, dropdown_target: "menuItem" }, class: "no-underline block pl-4 py-2 text-gray-900 bg-white hover:bg-gray-100 whitespace-nowrap focus:bg-gray-100" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

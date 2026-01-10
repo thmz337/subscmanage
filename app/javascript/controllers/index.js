@@ -3,5 +3,6 @@ import { application } from "controllers/application";
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
 eagerLoadControllersFrom("controllers", application);
 
-import { Tabs } from "tailwindcss-stimulus-components";
+import { Tabs, Dropdown } from "tailwindcss-stimulus-components";
 application.register("tabs", Tabs);
+application.register("dropdown", Dropdown);

@@ -1,5 +1,5 @@
 <% @presets.each do |preset| %>
-  <li role="option" data-autocomplete-value="<%= preset.name %>" data-autocomplete-label="<%= preset.name %>" data-action="click->preset#fill" data-preset-service-param="<%= preset.to_json %>" >
+  <li role="option" data-autocomplete-value="<%= preset.name %>" data-autocomplete-label="<%= preset.name %>" data-action="click->preset#fill" data-preset-service-param="<%= preset.to_json %>">
     <%= preset.name %>
   </li>
 <% end %>
