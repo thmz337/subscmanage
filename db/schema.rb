@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_10_090846) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_10_152818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -21,6 +21,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_090846) do
     t.integer "payment_interval"
     t.integer "payment_unit"
     t.integer "price"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exchanges", force: :cascade do |t|
+    t.string "base_currency"
+    t.date "base_date"
+    t.datetime "created_at", null: false
+    t.json "data"
     t.datetime "updated_at", null: false
   end
 
