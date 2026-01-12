@@ -5,7 +5,13 @@ class SubscriptionServicesController < ApplicationController
   def index
     @subscription_services = current_user.subscription_services
     this_month_payment_services = current_user.this_month_payment_services
-    @this_month_payment = this_month_payment_services.map { |service| service.price }.sum
+    @this_month_payment = this_month_payment_services.map do |service|
+      if service.monetary_unit == "JPY"
+        service.price
+      elsif service.monetary_unit == "USD"
+        (service.price * JSON.parse(Exchange.latest_exchange("USD").data)["rates"]["JPY"]).ceil
+      end
+    end.sum
   end
 
   def show
@@ -68,6 +74,6 @@ class SubscriptionServicesController < ApplicationController
     end
 
     def subscription_service_params
-      params.expect(subscription_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price ])
+      params.expect(subscription_service: [ :name, :next_payment, :payment_interval, :payment_unit, :price, :monetary_unit ])
     end
 end

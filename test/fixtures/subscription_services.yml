@@ -6,6 +6,7 @@ service1:
   payment_interval: 1
   payment_unit: 0
   price: 550
+  monetary_unit: 0
   user: thmz
 
 service2:
@@ -14,6 +15,7 @@ service2:
   payment_interval: 1
   payment_unit: 0
   price: 1000
+  monetary_unit: 0
   user: thmz
 
 service3:
@@ -22,6 +24,7 @@ service3:
   payment_interval: 1
   payment_unit: 0
   price: 1280
+  monetary_unit: 0
   user: thmz
 
 service4:
@@ -29,7 +32,8 @@ service4:
   next_payment: "2026-01-01"
   payment_interval: 1
   payment_unit: 1
-  price: 2290
+  price: 20
+  monetary_unit: 1
   user: thmz
 
 service5:
@@ -38,6 +42,7 @@ service5:
   payment_interval: 1
   payment_unit: 0
   price: 600
+  monetary_unit: 0
   user: payment
 
 service6:
@@ -46,4 +51,5 @@ service6:
   payment_interval: 1
   payment_unit: 0
   price: 1140
+  monetary_unit: 0
   user: payment

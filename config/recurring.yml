@@ -16,6 +16,9 @@ development:
   next_payment_update:
     class: "NextPaymentUpdateJob"
     schedule: "* * * * *"
+  get_exchange_data:
+    class: "GetExchangeDataJob"
+    schedule: "* * * * *"
 
 production:
   clear_solid_queue_finished_jobs:
@@ -26,4 +29,7 @@ production:
     schedule: 0 9 1 * * # begining of the month at 9 am
   next_payment_update:
     class: "NextPaymentUpdateJob"
+    schedule: every day at 0am
+  get_exchange_data:
+    class: "GetExchangeDataJob"
     schedule: every day at 0am

@@ -8,13 +8,15 @@ class Admin::ServicePresetsControllerTest < ActionDispatch::IntegrationTest
     { name: "Test",
       payment_interval: 1,
       payment_unit: "month",
-      price: 3000
+      price: 3000,
+      monetary_unit: "JPY"
     }
     @params2 =
     { name: "Test",
       payment_interval: 1,
       payment_unit: "year",
-      price: 36000
+      price: 36000,
+      monetary_unit: "JPY"
     }
     sign_in @user
   end

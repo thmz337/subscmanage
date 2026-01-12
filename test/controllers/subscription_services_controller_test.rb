@@ -10,14 +10,16 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
       name: "test",
       payment_interval: 1,
       payment_unit: "month",
-      price: 3000
+      price: 3000,
+      monetary_unit: "JPY"
     }
     @params2 =
     { next_payment: payment_date,
       name: "test",
       payment_interval: 1,
       payment_unit: "year",
-      price: 36000
+      price: 36000,
+      monetary_unit: "JPY"
     }
     sign_in @user
   end
