@@ -4,6 +4,7 @@ ja:
       subscription_service: サービス
     attributes:
       subscription_service:
+        new: サービスの登録
         name: サービス名
         next_payment: 次回支払日
         payment_interval: 支払間隔
