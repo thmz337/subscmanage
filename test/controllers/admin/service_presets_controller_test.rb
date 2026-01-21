@@ -43,7 +43,7 @@ class Admin::ServicePresetsControllerTest < ActionDispatch::IntegrationTest
     assert_difference("Admin::ServicePreset.count") do
       post admin_service_presets_url, params: { admin_service_preset: @params1 }
     end
-    assert_redirected_to admin_service_preset_url(Admin::ServicePreset.last)
+    assert_redirected_to admin_root_path
   end
 
   test "should show admin_service_preset" do
@@ -58,6 +58,7 @@ class Admin::ServicePresetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update admin_service_preset" do
     patch admin_service_preset_url(@admin_service_preset), params: { admin_service_preset: @params2 }
+    assert_redirected_to admin_root_path
   end
 
   test "should destroy admin_service_preset" do
@@ -65,6 +66,6 @@ class Admin::ServicePresetsControllerTest < ActionDispatch::IntegrationTest
       delete admin_service_preset_url(@admin_service_preset)
     end
 
-    assert_redirected_to admin_service_presets_url
+    assert_redirected_to admin_root_path
   end
 end
