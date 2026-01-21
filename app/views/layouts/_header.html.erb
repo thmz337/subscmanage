@@ -7,6 +7,7 @@
       </a>
     </div>
 
+    <% if user_signed_in? %>
     <div class="md:flex md:items-center md:gap-12">
       <div
         data-controller="dropdown"
@@ -29,5 +30,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
