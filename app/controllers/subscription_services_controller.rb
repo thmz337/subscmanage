@@ -29,7 +29,7 @@ class SubscriptionServicesController < ApplicationController
 
     respond_to do |format|
       if @subscription_service.save
-        format.html { redirect_to @subscription_service, notice: "Subsc service was successfully created." }
+        format.html { redirect_to subscription_services_path, notice: "Subsc service was successfully created." }
         format.json { render :show, status: :created, location: @subscription_service }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class SubscriptionServicesController < ApplicationController
   def update
     respond_to do |format|
       if @subscription_service.update(subscription_service_params)
-        format.html { redirect_to @subscription_service, notice: "Subsc service was successfully updated.", status: :see_other }
+        format.html { redirect_to subscription_services_path, notice: "Subsc service was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @subscription_service }
       else
         format.html { render :edit, status: :unprocessable_entity }

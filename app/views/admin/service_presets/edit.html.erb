@@ -4,9 +4,8 @@
 
 <%= render "form", admin_service_preset: @admin_service_preset %>
 
-<br>
+<div><%= button_to "削除する", admin_service_preset_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <div>
-  <%= link_to "Show this service preset", @admin_service_preset %> |
-  <%= link_to "Back to service presets", admin_service_presets_path %>
+  <%= link_to "Back to service presets", admin_root_path %>
 </div>

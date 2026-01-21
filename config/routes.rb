@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
+
+  namespace :account do
+    resource :password, only: [ :edit, :update ]
+    get "cancel" => "cancels#index"
+  end
 
   resources :subscription_services do
     get :search, on: :collection
@@ -12,7 +19,7 @@ Rails.application.routes.draw do
     root "dashboard#index"
   end
 
-  root "subscription_services#index"
+  root "home#index"
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

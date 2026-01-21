@@ -1,0 +1,3 @@
+<h3><%= t('devise.registrations.edit.cancel_my_account') %></h3>
+
+<div><%= button_to t('devise.registrations.edit.cancel_my_account'), user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>

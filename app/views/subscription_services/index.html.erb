@@ -4,15 +4,18 @@
 
 <h1>サービス一覧</h1>
 
+<% if @subscription_services.present? %>
 <h2>今月の支払い予定金額：<%= @this_month_payment %>円</h2>
 
 <div id="subscription_services">
   <% @subscription_services.each do |service| %>
-    <%= render service %>
-    <p>
-      <%= link_to "このサービスを表示する", service %>
-    </p>
+    <%= link_to edit_subscription_service_path(service) do %>
+      <%= render service %>
+    <% end %>
   <% end %>
 </div>
+<% else %>
+<p>まだサービスが登録されていません。以下の「サービスの登録」を押して登録を完了してください。</p>
+<% end %>
 
-<%= link_to "新しいサービスを作成する", new_subscription_service_path %>
+<%= link_to t("activerecord.attributes.subscription_service.new"), new_subscription_service_path %>

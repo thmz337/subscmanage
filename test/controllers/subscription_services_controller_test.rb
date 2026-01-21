@@ -24,9 +24,9 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test "should get index" do
+  test "should get index with login" do
     get root_path
-    assert_response :success
+    assert_redirected_to subscription_services_path
   end
 
   test "should get new" do
@@ -39,7 +39,7 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
       post subscription_services_url, params: { subscription_service: @params1 }
     end
 
-    assert_redirected_to subscription_service_url(SubscriptionService.last)
+    assert_redirected_to subscription_services_path
   end
 
   test "should show subscription_service" do
@@ -54,7 +54,7 @@ class SubscriptionServicesControllerTest < ActionDispatch::IntegrationTest
 
   test "should update subscription_service" do
     patch subscription_service_url(@subscription_service), params: { subscription_service: @params2 }
-    assert_redirected_to subscription_service_url(@subscription_service)
+    assert_redirected_to subscription_services_path
   end
 
   test "should destroy subscription_service" do

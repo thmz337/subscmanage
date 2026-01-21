@@ -4,9 +4,4 @@
 
 <%= render "form", subscription_service: @subscription_service %>
 
-<br>
-
-<div>
-  <%= link_to "このサービスを表示する", @subscription_service %> |
-  <%= link_to "サービス一覧に戻る", subscription_services_path %>
-</div>
+<%= button_to "このサービスを削除する", @subscription_service, method: :delete, data: {turbo_confirm: "本当に削除しますか？"} %>
