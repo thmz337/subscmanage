@@ -1,6 +1,6 @@
 <%= form_with(model: subscription_service, data: { controller: "preset" }) do |form| %>
   <% if subscription_service.errors.any? %>
-    <div style="color: red">
+    <div class="<%= flash_css_class(:alert) %>">
       <h2><%= pluralize(subscription_service.errors.count, "error") %> prohibited this subscription_service from being saved:</h2>
 
       <ul>
