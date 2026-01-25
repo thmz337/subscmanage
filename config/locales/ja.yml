@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       subscription_service: サービス
+      "admin/service_preset": プリセット
     attributes:
       subscription_service:
         new: サービスの登録
@@ -97,6 +98,11 @@ ja:
       day: 日
       month: 月
       year: 年
+  defaults:
+    messages:
+      created: "%{attribute}が作成されました"
+      updated: "%{attribute}が更新されました"
+      destroyed: "%{attribute}が削除されました"
   errors:
     format: "%{attribute}%{message}"
     messages:

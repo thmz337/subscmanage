@@ -25,7 +25,7 @@ class Admin::ServicePresetsController < Admin::BaseController
 
     respond_to do |format|
       if @admin_service_preset.save
-        format.html { redirect_to admin_root_path, notice: "Service preset was successfully created." }
+        format.html { redirect_to admin_root_path, notice: I18n.t(:created, scope: [ :defaults, :messages ], attribute: Admin::ServicePreset.model_name.human, status: :see_other) }
         format.json { render :show, status: :created, location: @admin_service_preset }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class Admin::ServicePresetsController < Admin::BaseController
   def update
     respond_to do |format|
       if @admin_service_preset.update(admin_service_preset_params)
-        format.html { redirect_to admin_root_path, notice: "Service preset was successfully updated.", status: :see_other }
+        format.html { redirect_to admin_root_path, notice: I18n.t(:updated, scope: [ :defaults, :messages ], attribute: Admin::ServicePreset.model_name.human, status: :see_other) }
         format.json { render :show, status: :ok, location: @admin_service_preset }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class Admin::ServicePresetsController < Admin::BaseController
     @admin_service_preset.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_root_path, notice: "Service preset was successfully destroyed.", status: :see_other }
+      format.html { redirect_to admin_root_path, notice: I18n.t(:destroyed, scope: [ :defaults, :messages ], attribute: Admin::ServicePreset.model_name.human, status: :see_other) }
       format.json { head :no_content }
     end
   end
