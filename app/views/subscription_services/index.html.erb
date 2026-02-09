@@ -1,9 +1,9 @@
-<% content_for :title, "サービス一覧" %>
+<% content_for :title, t("helpers.heading.list", model: t("activerecord.models.subscription_service")) %>
 
-<h1>サービス一覧</h1>
+<h1><%= t("helpers.heading.list", model: t("activerecord.models.subscription_service")) %></h1>
 
 <% if @subscription_services.present? %>
-<h2>今月の支払い予定金額：<%= @this_month_payment %>円</h2>
+<h2><%= t("helpers.heading.total_amount") %>：<%= @this_month_payment %><%= t("number.currency.format.unit") %></h2>
 
 <div id="subscription_services">
   <% @subscription_services.each do |service| %>
@@ -13,7 +13,7 @@
   <% end %>
 </div>
 <% else %>
-<p>まだサービスが登録されていません。以下の「サービスの登録」を押して登録を完了してください。</p>
+<p><%= t("helpers.subscription_service.no_service") %></p>
 <% end %>
 
 <%= link_to t("activerecord.attributes.subscription_service.new"), new_subscription_service_path %>

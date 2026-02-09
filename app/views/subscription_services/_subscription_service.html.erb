@@ -1,31 +1,31 @@
 <div id="<%= dom_id subscription_service %>">
   <div>
-    <strong>サービス名:</strong>
+    <strong><%= t("activerecord.attributes.subscription_service.name") %>:</strong>
     <%= subscription_service.name %>
   </div>
 
   <div>
-    <strong>次回支払日:</strong>
+    <strong><%= t("activerecord.attributes.subscription_service.next_payment") %>:</strong>
     <%= subscription_service.next_payment %>
   </div>
 
   <div>
-    <strong>支払間隔:</strong>
+    <strong><%= t("activerecord.attributes.subscription_service.payment_interval") %>:</strong>
     <%= subscription_service.payment_interval %>
   </div>
 
   <div>
-    <strong>支払期間の単位:</strong>
+    <strong><%= t("activerecord.attributes.subscription_service.payment_unit") %>:</strong>
     <%= payment_unit_to_ja(subscription_service.payment_unit) %>
   </div>
 
   <div>
-    <strong>金額:</strong>
+    <strong><%= t("activerecord.attributes.subscription_service.price") %>:</strong>
     <%= subscription_service.price %>
   </div>
 
   <div>
-    <strong>通貨単位:</strong>
+    <strong><%= t("activerecord.attributes.subscription_service.monetary_unit") %>:</strong>
     <%= monetary_unit_to_ja(subscription_service.monetary_unit) %>
   </div>
 </div>

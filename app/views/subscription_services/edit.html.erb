@@ -1,7 +1,7 @@
-<% content_for :title, "サービスの編集" %>
+<% content_for :title, t("helpers.heading.edit", model: t("activerecord.models.subscription_service")) %>
 
-<h1>サービスの編集</h1>
+<h1><%= t("helpers.heading.edit", model: t("activerecord.models.subscription_service")) %></h1>
 
 <%= render "form", subscription_service: @subscription_service %>
 
-<%= button_to "このサービスを削除する", @subscription_service, method: :delete, data: {turbo_confirm: "本当に削除しますか？"} %>
+<%= button_to t("helpers.submit.delete"), @subscription_service, method: :delete, data: {turbo_confirm: "本当に削除しますか？"} %>
