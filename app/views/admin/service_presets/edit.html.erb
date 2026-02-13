@@ -1,11 +1,11 @@
 <% content_for :title, "Editing service preset" %>
 
-<h1>Editing service preset</h1>
+<h1><%= t("helpers.heading.edit", model: t("activerecord.models.admin.service_preset")) %></h1>
 
 <%= render "form", admin_service_preset: @admin_service_preset %>
 
-<div><%= button_to "削除する", admin_service_preset_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div><%= button_to t("helpers.submit.delete"), admin_service_preset_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <div>
-  <%= link_to "Back to service presets", admin_root_path %>
+  <%= link_to t("helpers.back", model: t("activerecord.models.admin.service_preset")), admin_root_path %>
 </div>

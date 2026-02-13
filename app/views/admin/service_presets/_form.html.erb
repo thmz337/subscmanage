@@ -1,6 +1,6 @@
 <%= form_with(model: admin_service_preset) do |form| %>
   <% if admin_service_preset.errors.any? %>
-    <div style="color: red">
+    <div class="<%= flash_css_class(:alert) %>">
       <h2><%= pluralize(admin_service_preset.errors.count, "error") %> prohibited this admin_service_preset from being saved:</h2>
 
       <ul>

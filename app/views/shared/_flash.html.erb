@@ -1,0 +1,6 @@
+<% flash.each do |key, message| %>
+<% next if message.blank? %>
+  <div class="<%= flash_css_class(key) %> mx-auto max-w-md">
+    <%= message %>
+  </div>
+<% end %>

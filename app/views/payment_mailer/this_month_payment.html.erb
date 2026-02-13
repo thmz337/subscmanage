@@ -1,9 +1,7 @@
-<p>今月の支払額は以下のとおりです。</p>
-
-<h2>合計金額</h2>
+<h2><%= t("helpers.heading.total_amount") %></h2>
 <p><%= number_to_currency(@this_month_payment, format: "%n%u") %></p>
 
-<h2>内訳</h2>
+<h2><%= t("helpers.heading.breakdown") %></h2>
 <% @this_month_payment_services.each do |service| %>
   <p><%= service.name %></p>
   <p><%= service.next_payment %></p>
