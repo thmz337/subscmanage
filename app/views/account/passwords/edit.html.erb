@@ -9,6 +9,9 @@
 	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
 		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
+  <div class="mx-auto max-w-md text-red-800 pl-6">    
+    <%= current_user.errors.full_messages_for(:current_password).first %>
+  </div>
 
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
     <div class="flex">
