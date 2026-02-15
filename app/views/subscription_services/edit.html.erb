@@ -1,7 +1,14 @@
 <% content_for :title, t("helpers.heading.edit", model: t("activerecord.models.subscription_service")) %>
 
-<h1><%= t("helpers.heading.edit", model: t("activerecord.models.subscription_service")) %></h1>
+<h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
+  <%= t("helpers.heading.edit", model: t("activerecord.models.subscription_service")) %>
+</h2>
 
 <%= render "form", subscription_service: @subscription_service %>
 
-<%= button_to t("helpers.submit.delete"), @subscription_service, method: :delete, data: {turbo_confirm: "本当に削除しますか？"} %>
+<div class="field mx-auto max-w-md pt-6 pl-6 pr-6 mt-8">
+  <%= button_to t("helpers.submit.delete"), @subscription_service,
+      method: :delete, data: {turbo_confirm: "本当に削除しますか？"},
+      class: "bg-red-600 border border-red-300 text-white
+	      px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer shadow-sm transition" %>
+</div>

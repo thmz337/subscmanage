@@ -1,6 +1,6 @@
 module ApplicationHelper
   def flash_css_class(key)
-    base = "mx-auto max-w-md px-2 py-2 rounded sm:px-6 lg:px-8"
+    base = "mx-auto max-w-md p-4 rounded"
     case key.to_sym
     when :notice
       "#{base} bg-green-100 text-green-800"

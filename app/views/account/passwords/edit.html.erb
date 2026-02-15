@@ -1,28 +1,38 @@
-<h2>Edit Password</h2>
+<h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
+  <%= t("devise.passwords.edit.change_my_password") %>
+</h2>
 
 <%= form_with(model: current_user, url: account_password_path, html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: current_user %>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br>
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
+    <%= f.label :current_password, style: "display: block", class: "pb-1 text-gray-700" %>
+    <%= f.password_field :current_password, autocomplete: "current-password",
+	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
+		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
+    <%= f.label :password, style: "display: block", class: "pb-1 text-gray-700" %>
+    <%= f.password_field :password, autocomplete: "new-password",
+	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
+		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
     <% if @minimum_password_length %>
       <br>
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
+    <%= f.label :password_confirmation, style: "display: block", class: "pb-1 text-gray-700" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",
+	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
+		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "更新する" %>
+  <div class="actions mx-auto max-w-md pt-6 pl-6 pr-6">
+    <%= f.submit t("devise.passwords.edit.change_my_password"),
+	class: "bg-white border border-gray-300
+		px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition" %>
   </div>
 <% end %>
