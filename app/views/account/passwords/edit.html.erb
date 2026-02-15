@@ -2,9 +2,7 @@
   <%= t("devise.passwords.edit.change_my_password") %>
 </h2>
 
-<%= form_with(model: current_user, url: account_password_path, html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: current_user %>
-
+<%= form_with(model: current_user, url: account_password_path, method: :put) do |f| %>
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
     <%= f.label :current_password, style: "display: block", class: "pb-1 text-gray-700" %>
     <%= f.password_field :current_password, autocomplete: "current-password",
@@ -13,14 +11,18 @@
   </div>
 
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
-    <%= f.label :password, style: "display: block", class: "pb-1 text-gray-700" %>
+    <div class="flex">
+      <%= f.label :password, class: "pb-1 text-gray-700" %>
+      <% if @minimum_password_length %>
+      <%= t('devise.shared.minimum_password_length', count: @minimum_password_length, class: "text-gray-700") %>
+      <% end %>
+    </div>
     <%= f.password_field :password, autocomplete: "new-password",
 	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
 		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    <% if @minimum_password_length %>
-      <br>
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  </div>
+  <div class="mx-auto max-w-md text-red-800 pl-6">    
+    <%= current_user.errors.full_messages_for(:password).first %>
   </div>
 
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
@@ -28,6 +30,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password",
 	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
 		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+  <div class="mx-auto max-w-md text-red-800 pl-6">    
+    <%= current_user.errors.full_messages_for(:password_confirmation).first %>
   </div>
 
   <div class="actions mx-auto max-w-md pt-6 pl-6 pr-6">
