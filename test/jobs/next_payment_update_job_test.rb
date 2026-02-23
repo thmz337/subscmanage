@@ -2,20 +2,19 @@ require "test_helper"
 
 class NextPaymentUpdateJobTest < ActiveJob::TestCase
   test "services with payment dates one day before or earlier than the job execution date must be update" do
-    travel_to Time.zone.local(2026, 1, 1) do
+    travel_to Date.current + 1 do
+      service3_prev_payment = subscription_services(:service3).next_payment
+      service4_prev_payment = subscription_services(:service4).next_payment
+
       perform_enqueued_jobs do
         NextPaymentUpdateJob.perform_later
       end
 
-      assert_equal subscription_services(:service3).next_payment.to_s, "2026-01-31"
-    end
+      subscription_services(:service3).reload
+      subscription_services(:service4).reload
 
-    travel_to Time.zone.local(2026, 1, 2) do
-      perform_enqueued_jobs do
-        NextPaymentUpdateJob.perform_later
-      end
-
-      assert_equal subscription_services(:service4).next_payment.to_s, "2027-01-01"
+      assert_equal subscription_services(:service3).next_payment.to_s, (service3_prev_payment.next_month).to_s
+      assert_equal subscription_services(:service4).next_payment.to_s, (service4_prev_payment.next_year).to_s
     end
   end
 

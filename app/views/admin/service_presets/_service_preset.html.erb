@@ -1,26 +1,26 @@
 <div id="<%= dom_id service_preset %>">
   <div>
-    <strong>サービス名:</strong>
+    <strong><%= t("activerecord.attributes.admin/service_preset.name") %>:</strong>
     <%= service_preset.name %>
   </div>
 
   <div>
-    <strong>支払間隔:</strong>
+    <strong><%= t("activerecord.attributes.admin/service_preset.payment_interval") %>:</strong>
     <%= service_preset.payment_interval %>
   </div>
 
   <div>
-    <strong>支払単位:</strong>
+    <strong><%= t("activerecord.attributes.admin/service_preset.payment_unit") %>:</strong>
     <%= service_preset.payment_unit %>
   </div>
 
   <div>
-    <strong>金額:</strong>
+    <strong><%= t("activerecord.attributes.admin/service_preset.price") %>:</strong>
     <%= service_preset.price %>
   </div>
 
   <div>
-    <strong>通貨単位:</strong>
+    <strong><%= t("activerecord.attributes.admin/service_preset.monetary_unit") %>:</strong>
     <%= service_preset.monetary_unit %>
   </div>
 

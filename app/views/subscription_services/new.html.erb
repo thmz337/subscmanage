@@ -1,5 +1,7 @@
 <% content_for :title, "New subscription service" %>
 
-<h1>サービスの登録</h1>
+<h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
+  <%= t("helpers.heading.new", model: t("activerecord.models.subscription_service")) %>
+</h2>
 
 <%= render "form", subscription_service: @subscription_service %>

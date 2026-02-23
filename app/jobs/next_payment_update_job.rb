@@ -2,7 +2,7 @@ class NextPaymentUpdateJob < ApplicationJob
   queue_as :default
 
   def perform(*args)
-    subscription_services = SubscriptionService.payment_for_that_day(Date.today - 1)
+    subscription_services = SubscriptionService.payment_for_that_day(Date.current - 1)
     subscription_services.find_each do |service|
       case service.payment_unit
       when "month"

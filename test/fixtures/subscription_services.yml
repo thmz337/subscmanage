@@ -20,7 +20,7 @@ service2:
 
 service3:
   name: Youtube Premium
-  next_payment: "2025-12-31"
+  next_payment: <%= Date.current.to_s %>
   payment_interval: 1
   payment_unit: 0
   price: 1280
@@ -29,7 +29,7 @@ service3:
 
 service4:
   name: ChatGPT(Business)
-  next_payment: "2026-01-01"
+  next_payment: <%= Date.current.to_s %>
   payment_interval: 1
   payment_unit: 1
   price: 20

@@ -2,7 +2,11 @@ ja:
   activerecord:
     models:
       subscription_service: サービス
+      admin:
+        service_preset: プリセット
     attributes:
+      user:
+        edit: 登録情報の変更
       subscription_service:
         new: サービスの登録
         name: サービス名
@@ -11,6 +15,15 @@ ja:
         payment_unit: 支払単位
         price: 金額
         monetary_unit: 通貨単位
+      "admin/service_preset":
+        name: サービス名
+        payment_interval: 支払間隔
+        payment_unit: 支払単位
+        price: 金額
+        monetary_unit: 通貨単位
+        new: プリセットの作成
+        edit: 編集
+        delete: 削除
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -97,6 +110,11 @@ ja:
       day: 日
       month: 月
       year: 年
+  defaults:
+    messages:
+      created: "%{attribute}が作成されました"
+      updated: "%{attribute}が更新されました"
+      destroyed: "%{attribute}が削除されました"
   errors:
     format: "%{attribute}%{message}"
     messages:
@@ -130,12 +148,32 @@ ja:
       body: 次の項目を確認してください
       header: "%{model}に%{count}個のエラーが発生しました"
   helpers:
+    service_name: サブスク管理
+    subscription_service:
+      no_service: まだサービスが登録されていません。以下の「サービスの登録」を押して登録を完了してください。
+    heading:
+      service_name: サブスク管理
+      list: "%{model}一覧"
+      new: "%{model}の登録"
+      edit: "%{model}の編集"
+      admin: 管理者画面
+      total_amount: 今月の支払額
+      breakdown: 内訳
     select:
       prompt: 選択してください
     submit:
       create: 登録する
       submit: 保存する
       update: 更新する
+      delete: 削除する
+    back: "%{model}一覧に戻る"
+    login: ログイン画面へ
+    logout: ログアウト
+    register: 初めての方はこちら
+    user: ユーザー画面へ
+    admin: 管理者画面へ
+    term: 利用規約
+    policy: プライバシーポリシー
   number:
     currency:
       format:

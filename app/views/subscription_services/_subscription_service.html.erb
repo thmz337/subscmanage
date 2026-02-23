@@ -1,31 +1,19 @@
-<div id="<%= dom_id subscription_service %>">
-  <div>
-    <strong>サービス名:</strong>
+<div id="<%= dom_id subscription_service %>" class="p-6">
+  <h2 class="text-2xl font-bold mb-2">
     <%= subscription_service.name %>
-  </div>
+  </h2>
 
-  <div>
-    <strong>次回支払日:</strong>
+  <div class="ml-1">
+    <strong><%= t("activerecord.attributes.subscription_service.next_payment") %>:</strong>
     <%= subscription_service.next_payment %>
   </div>
 
-  <div>
-    <strong>支払間隔:</strong>
-    <%= subscription_service.payment_interval %>
+  <div class="ml-1">
+    <strong><%= t("activerecord.attributes.subscription_service.payment_interval") %>:</strong>
+    <%= subscription_service.payment_interval %><%= payment_unit_to_ja(subscription_service.payment_unit) %>
   </div>
 
-  <div>
-    <strong>支払期間の単位:</strong>
-    <%= payment_unit_to_ja(subscription_service.payment_unit) %>
-  </div>
-
-  <div>
-    <strong>金額:</strong>
-    <%= subscription_service.price %>
-  </div>
-
-  <div>
-    <strong>通貨単位:</strong>
-    <%= monetary_unit_to_ja(subscription_service.monetary_unit) %>
+  <div class="mt-3 text-right text-2xl font-bold">
+    <%= subscription_service.price.to_formatted_s(:delimited) %><%= monetary_unit_to_ja(subscription_service.monetary_unit) %>
   </div>
 </div>

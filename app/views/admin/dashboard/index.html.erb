@@ -6,11 +6,11 @@
   </ul>
 
   <div class="hidden py-4 px-4 border-l border-b border-r" data-tabs-target="panel">
-      <%= link_to "プリセットの追加", new_admin_service_preset_path %>
+      <%= link_to t("activerecord.attributes.admin/service_preset.new"), new_admin_service_preset_path %>
 	  <% @admin_service_presets.each do |admin_service_preset| %>
 	    <%= render admin_service_preset %>
 	    <p>
-	      <%= link_to "編集", edit_admin_service_preset_path(admin_service_preset) %>
+	      <%= link_to t("activerecord.attributes.admin/service_preset.edit"), edit_admin_service_preset_path(admin_service_preset) %>
 	    </p>
 	  <% end %>
   </div>
