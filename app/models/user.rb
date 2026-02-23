@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def this_month_payment_services
-    subscription_services.filter { |service| service.next_payment.month == Date.today.month }
+    subscription_services.filter { |service| service.next_payment.month == Date.current.month }
   end
 
   private
