@@ -5,14 +5,14 @@ class NextPaymentUpdateJobTest < ActiveJob::TestCase
     travel_to Date.current + 1 do
       service3_prev_payment = subscription_services(:service3).next_payment
       service4_prev_payment = subscription_services(:service4).next_payment
-      
+
       perform_enqueued_jobs do
         NextPaymentUpdateJob.perform_later
       end
-      
+
       subscription_services(:service3).reload
       subscription_services(:service4).reload
-      
+
       assert_equal subscription_services(:service3).next_payment.to_s, (service3_prev_payment.next_month).to_s
       assert_equal subscription_services(:service4).next_payment.to_s, (service4_prev_payment.next_year).to_s
     end

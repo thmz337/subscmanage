@@ -1,6 +1,6 @@
 class Account::PasswordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_minimum_password_length, only: [:edit, :update]
+  before_action :set_minimum_password_length, only: [ :edit, :update ]
 
   def edit
   end
@@ -10,7 +10,7 @@ class Account::PasswordsController < ApplicationController
       current_user.errors.add(:password, "を入力してください")
       return render :edit, status: :unprocessable_entity
     end
-    
+
     if current_user.update_with_password(password_params)
       bypass_sign_in current_user
       redirect_to root_path, notice: t("devise.passwords.edit.message.password_changed")
