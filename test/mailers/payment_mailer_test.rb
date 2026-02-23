@@ -3,6 +3,7 @@ require "test_helper"
 class PaymentMailerTest < ActionMailer::TestCase
   test "this month payment" do
     travel_to Time.zone.local(2026, 1, 1) do
+      puts Date.current
       user = users(:payment)
       email = PaymentMailer.with(user: user).this_month_payment
 

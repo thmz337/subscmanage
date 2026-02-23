@@ -22,7 +22,6 @@ module Subscmanage
     # in config/environments, which are processed later.
     #
     config.time_zone = "Tokyo"
-    config.active_record.default_timezone = :local
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :ja
   end
