@@ -1,27 +1,16 @@
-<div id="<%= dom_id service_preset %>">
-  <div>
+<div id="<%= dom_id service_preset %>" class="p-6">
+  <h2 class="text-xl font-bold mb-2">
     <strong><%= t("activerecord.attributes.admin/service_preset.name") %>:</strong>
     <%= service_preset.name %>
-  </div>
+  </h2>
 
-  <div>
+  <div class="ml-1">
     <strong><%= t("activerecord.attributes.admin/service_preset.payment_interval") %>:</strong>
-    <%= service_preset.payment_interval %>
+    <%= service_preset.payment_interval %><%= payment_unit_to_ja(service_preset.payment_unit) %>
   </div>
 
-  <div>
-    <strong><%= t("activerecord.attributes.admin/service_preset.payment_unit") %>:</strong>
-    <%= service_preset.payment_unit %>
-  </div>
-
-  <div>
+  <div class="ml-1">
     <strong><%= t("activerecord.attributes.admin/service_preset.price") %>:</strong>
-    <%= service_preset.price %>
+    <%= service_preset.price.to_formatted_s(:delimited) %><%= monetary_unit_to_ja(service_preset.monetary_unit) %>
   </div>
-
-  <div>
-    <strong><%= t("activerecord.attributes.admin/service_preset.monetary_unit") %>:</strong>
-    <%= service_preset.monetary_unit %>
-  </div>
-
 </div>
