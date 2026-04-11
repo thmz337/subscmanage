@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+#presets li[aria-selected="true"] {
+  @apply bg-indigo-100;
+}
+
+#presets li {
+  @apply m-1 p-2;
+}
