@@ -1,11 +1,16 @@
 <% content_for :title, "Editing service preset" %>
 
-<h1><%= t("helpers.heading.edit", model: t("activerecord.models.admin.service_preset")) %></h1>
+<h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
+  <%= t("helpers.heading.edit", model: t("activerecord.models.admin.service_preset")) %>
+</h2>
 
 <%= render "form", admin_service_preset: @admin_service_preset %>
 
-<div><%= button_to t("helpers.submit.delete"), admin_service_preset_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
-<div>
-  <%= link_to t("helpers.back", model: t("activerecord.models.admin.service_preset")), admin_root_path %>
+<div class="field mx-auto max-w-md pt-6 pl-6 pr-6 mt-8">
+  <%= button_to t("helpers.submit.delete"), admin_service_preset_path,
+      data: { confirm: "Are you sure?", turbo_confirm: "本当に削除しますか？" }, method: :delete,
+      class: "bg-red-600 border border-red-300 text-white
+	      px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer shadow-sm transition" %>
 </div>
+

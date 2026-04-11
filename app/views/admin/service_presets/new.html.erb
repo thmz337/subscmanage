@@ -1,11 +1,15 @@
 <% content_for :title, "New service preset" %>
 
-<h1><%= t("helpers.heading.new", model: t("activerecord.models.admin.service_preset")) %></h1>
+<h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
+  <%= t("helpers.heading.new", model: t("activerecord.models.admin.service_preset")) %>
+</h2>
 
 <%= render "form", admin_service_preset: @admin_service_preset %>
 
 <br>
 
+<!--
 <div>
 <%= link_to t("helpers.back", model: t("activerecord.models.admin.service_preset")), admin_root_path %>
 </div>
+-->
