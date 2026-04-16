@@ -1,3 +1,4 @@
 <h3><%= t('devise.registrations.edit.cancel_my_account') %></h3>
+<% content_for :description, "サブスク管理の退会処理画面です。" %>
 
 <div><%= button_to t('devise.registrations.edit.cancel_my_account'), user_registration_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
