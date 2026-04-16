@@ -4,6 +4,7 @@ ja:
       subscription_service: サービス
       admin:
         service_preset: プリセット
+      user: ユーザー
     attributes:
       user:
         edit: 登録情報の変更
@@ -152,6 +153,10 @@ ja:
     subscription_service:
       no_service: まだサービスが登録されていません。以下の「サービスの登録」を押して登録を完了してください。
     heading:
+      user:
+        login: ログイン
+        cancel: 退会処理
+      password: パスワードの編集
       service_name: サブスク管理
       list: "%{model}一覧"
       new: "%{model}の登録"
@@ -159,6 +164,8 @@ ja:
       admin: 管理者画面
       total_amount: 今月の支払額
       breakdown: 内訳
+      terms: 利用規約
+      privacy_policy: プライバシーポリシー
     select:
       prompt: 選択してください
     submit:
