@@ -1,3 +1,6 @@
+<% content_for :title, t("helpers.heading.password") %>
+<% content_for :description, "サブスク管理のパスワード変更画面です。" %>
+
 <h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
   <%= t('devise.passwords.edit.change_your_password') %>
 </h2>
@@ -13,27 +16,23 @@
       <% end %>
     </div>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
-		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
-  <div class="mx-auto max-w-md text-red-800 pl-6">    
+  <div class="mx-auto max-w-md text-red-800 pl-6">
     <%= @user.errors.full_messages_for(:password).first %>
   </div>
 
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
-    <%= f.label :password_confirmation, t('devise.passwords.edit.confirm_new_password'),
-	style: "display: block", class: "pb-1 text-gray-700" %>
+    <%= f.label :password_confirmation, t('devise.passwords.edit.confirm_new_password'), style: "display: block", class: "pb-1 text-gray-700" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full
-		py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
-  <div class="mx-auto max-w-md text-red-800 pl-6">    
+  <div class="mx-auto max-w-md text-red-800 pl-6">
     <%= @user.errors.full_messages_for(:password_confirmation).first %>
   </div>
 
   <div class="actions mx-auto max-w-md pt-6 pl-6 pr-6">
     <%= f.submit t('devise.passwords.edit.change_my_password'),
-	class: "bg-white border border-gray-300
-		px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition" %>
+      class: "bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition" %>
   </div>
 <% end %>

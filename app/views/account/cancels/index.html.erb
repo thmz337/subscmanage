@@ -1,7 +1,8 @@
+<% content_for :title, t("helpers.heading.user.cancel") %>
+
 <div class="field mx-auto max-w-md pt-6 pl-6 pr-6 mt-4">
   <%= button_to t('devise.registrations.edit.cancel_my_account'),
       user_registration_path, data: { turbo_confirm: t('devise.registrations.edit.are_you_sure') },
       method: :delete,
-      class: "bg-red-600 border border-red-300 text-white
-	      px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer shadow-sm transition"%>
+      class: "bg-red-600 border border-red-300 text-white px-4 py-2 rounded hover:bg-red-800 hover:cursor-pointer shadow-sm transition" %>
 </div>

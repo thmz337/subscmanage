@@ -1,3 +1,6 @@
+<% content_for :title, t("helpers.heading.user.login") %>
+<% content_for :description, "サブスク管理のログイン画面です。" %>
+
 <h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl font-bold">
   <%= t('devise.sessions.new.sign_in') %>
 </h2>
@@ -6,15 +9,13 @@
   <div class="field mx-auto max-w-md p-6">
     <%= f.label :email, class: "text-sm font-medium text-gray-700" %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none
-		rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
   <div class="field mx-auto max-w-md p-6">
     <%= f.label :password, class: "text-sm font-medium text-gray-700" %><br>
     <%= f.password_field :password, autocomplete: "current-password",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none
-		rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
 
   <% if devise_mapping.rememberable? %>

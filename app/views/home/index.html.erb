@@ -1,5 +1,8 @@
+<% content_for :title, t("helpers.heading.service_name") %>
+<% content_for :description, "サブスク管理のトップページです。" %>
+
 <h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
-  <%= t("helpers.heading.service_name") %>
+  <%= t("helpers.service_name") %>
 </h2>
 
 <div class="mx-auto max-w-md p-6">
@@ -7,8 +10,7 @@
 </div>
 
 <div class="mx-auto max-w-md p-6">
-  <button class="bg-white border border-gray-300
-		 px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition">
+  <button class="bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition">
     <%= link_to t("helpers.login"), new_user_session_path %>
   </button>
 </div>

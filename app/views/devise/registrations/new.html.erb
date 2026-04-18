@@ -1,3 +1,6 @@
+<% content_for :title, t("helpers.heading.new", model: t("activerecord.models.user")) %>
+<% content_for :description, "サブスク管理のユーザー登録画面です。" %>
+
 <h2 class="mx-auto max-w-md p-6 order-first text-2xl text-stone-900 sm:text-2xl">
   <%= t('devise.registrations.new.sign_up') %>
 </h2>
@@ -6,11 +9,10 @@
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
     <%= f.label :email, display: "block", class: "pb-1 text-gray-700" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none
-		rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
   <% if resource.errors.include?(:email) %>
-  <div class="mx-auto max-w-md text-red-800 pl-6">    
+  <div class="mx-auto max-w-md text-red-800 pl-6">
     <%= resource.errors.full_messages_for(:email).first %>
   </div>
   <% end %>
@@ -18,11 +20,10 @@
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
     <%= f.label :email_confirmation, display: "block", class: "pb-1 text-gray-700" %>
     <%= f.email_field :email_confirmation, autofocus: true, autocomplete: "email",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none
-		rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
   <% if resource.errors.include?(:email_confirmation) %>
-  <div class="mx-auto max-w-md text-red-800 pl-6">    
+  <div class="mx-auto max-w-md text-red-800 pl-6">
     <%= resource.errors.full_messages_for(:email_confirmation).first %>
   </div>
   <% end %>
@@ -35,11 +36,10 @@
       <% end %>
     </div>
     <%= f.password_field :password, autocomplete: "new-password",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none
-		rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
   <% if resource.errors.include?(:password) %>
-  <div class="mx-auto max-w-md text-red-800 pl-6">    
+  <div class="mx-auto max-w-md text-red-800 pl-6">
     <%= resource.errors.full_messages_for(:password).first %>
   </div>
   <% end %>
@@ -47,18 +47,16 @@
   <div class="field mx-auto max-w-md pt-6 pl-6 pr-6">
     <%= f.label :password_confirmation, display: "block", class: "pb-1 text-gray-700" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password",
-	class: "border-1 border-indigo-300 shadow-sm appearance-none
-		rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      class: "border-1 border-indigo-300 shadow-sm appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
   </div>
   <% if resource.errors.include?(:password_confirmation) %>
-  <div class="mx-auto max-w-md text-red-800 pl-6">    
+  <div class="mx-auto max-w-md text-red-800 pl-6">
     <%= resource.errors.full_messages_for(:password_confirmation).first %>
   </div>
   <% end %>
 
   <div class="actions mx-auto max-w-md pt-6 pl-6 pr-6">
     <%= f.submit t('devise.registrations.new.sign_up'),
-	class: "bg-white border border-gray-300
-		px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition" %>
+      class: "bg-white border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 hover:cursor-pointer shadow-sm transition" %>
   </div>
 <% end %>
