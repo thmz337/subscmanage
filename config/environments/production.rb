@@ -59,7 +59,7 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = {
-    host: "subscmanage.com",
+    host: "www.subscmanage.com",
     protocol: "https"
   }
   config.action_mailer.delivery_method = :resend
