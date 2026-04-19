@@ -13,7 +13,7 @@ class PaymentMailerTest < ActionMailer::TestCase
       body = email.body.to_s
       this_month_payment = user.this_month_payment_services.map { |service| service.price }.sum
 
-      assert_equal [ "from@example.com" ], email.from
+      assert_equal [ "no-reply@subscmanage.com" ], email.from
       assert_equal [ user.email ], email.to
       assert_equal "今月の支払いについて", email.subject
       assert_match "#{this_month_payment}", body
