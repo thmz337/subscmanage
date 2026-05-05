@@ -1,16 +1,16 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
-    this.timer = setTimeout(() => this.dismiss(), 4000)
+    this.timer = setTimeout(() => this.dismiss(), 4000);
   }
 
   disconnect() {
-    clearTimeout(this.timer)
+    clearTimeout(this.timer);
   }
 
   dismiss() {
-    this.element.classList.add("opacity-0", "translate-x-4")
-    setTimeout(() => this.element.remove(), 300)
+    this.element.classList.add("opacity-0", "translate-x-4");
+    setTimeout(() => this.element.remove(), 300);
   }
 }
