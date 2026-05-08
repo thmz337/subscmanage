@@ -20,7 +20,7 @@
     <tr style="border-bottom: 1px solid #f3f4f6;">
       <td style="padding: 12px 0; font-size: 14px; color: #111827; font-weight: 500;"><%= service.name %></td>
       <td style="padding: 12px 0; font-size: 13px; color: #6b7280; text-align: right;"><%= l(service.next_payment, format: :long) %></td>
-      <td style="padding: 12px 0; font-size: 14px; color: #111827; font-weight: 600; text-align: right;"><%= number_to_currency(service.price, format: "%n%u", unit: "円", delimiter: ",") %></td>
+      <td style="padding: 12px 0; font-size: 14px; color: #111827; font-weight: 600; text-align: right;"><%= number_to_currency(service.price, format: "%n%u", unit: "#{monetary_unit_to_ja(service.monetary_unit)}", delimiter: ",") %></td>
     </tr>
     <% end %>
   </tbody>
