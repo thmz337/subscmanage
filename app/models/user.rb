@@ -12,7 +12,10 @@ class User < ApplicationRecord
   validate :email_matches_confirmation, on: :create
 
   def this_month_payment_services
-    subscription_services.filter { |service| service.next_payment.month == Date.current.month }
+    subscription_services.filter do |service|
+      service.next_payment.year == Date.current.year &&
+      service.next_payment.month == Date.current.month
+    end
   end
 
   private
