@@ -66,7 +66,7 @@ class SubscriptionServicesController < ApplicationController
 
   private
     def set_subscription_service
-      @subscription_service = SubscriptionService.find(params.expect(:id))
+      @subscription_service = current_user.subscription_services.find(params.expect(:id))
     end
 
     def subscription_service_params
