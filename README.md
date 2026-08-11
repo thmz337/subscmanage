@@ -10,9 +10,8 @@ https://www.subscmanage.com
 
 ## スクリーンショット
 
-<img width="545" height="672" alt="スクリーンショット 2026-04-19 21 52 29" src="https://github.com/user-attachments/assets/110988d6-4005-413e-a15d-1d437eb249f4" />
+<img width="695" height="603" alt="スクリーンショット 2026-08-11 13 30 15" src="https://github.com/user-attachments/assets/799b8a37-1500-49a3-baec-29335c1af9a5" />
 
-<img width="502" height="519" alt="スクリーンショット 2026-04-19 21 52 54" src="https://github.com/user-attachments/assets/81b95451-900d-4d95-80d6-1ffdf4f6bc72" />
 
 ## 技術スタック
 
