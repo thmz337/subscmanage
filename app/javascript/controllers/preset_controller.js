@@ -22,7 +22,7 @@ export default class extends Controller {
     );
 
     if (event.type === "click") {
-      params = event.params;
+      params = event.params.service;
     } else if (event.type === "keydown" && event.key === "Enter") {
       if (this.selectedItem) {
         params = JSON.parse(
@@ -32,10 +32,11 @@ export default class extends Controller {
     }
 
     if (params) {
-      subscription_service_price.value = params.service.price;
-      service_payment_interval.value = params.service.payment_interval;
-      service_payment_unit.value = params.service.payment_unit;
-      service_monetary_unit.value = params.service.monetary_unit;
+      console.log(params);
+      subscription_service_price.value = params.price;
+      service_payment_interval.value = params.payment_interval;
+      service_payment_unit.value = params.payment_unit;
+      service_monetary_unit.value = params.monetary_unit;
     }
   }
 
