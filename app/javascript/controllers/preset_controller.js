@@ -6,6 +6,8 @@ export default class extends Controller {
   }
 
   fill(event) {
+    let params = null;
+
     const subscription_service_price = document.getElementById(
       "subscription_service_price",
     );
@@ -15,20 +17,25 @@ export default class extends Controller {
     const service_payment_unit = document.getElementById(
       "subscription_service_payment_unit",
     );
+    const service_monetary_unit = document.getElementById(
+      "subscription_service_monetary_unit",
+    );
 
     if (event.type === "click") {
-      subscription_service_price.value = event.params.service.price;
-      service_payment_interval.value = event.params.service.payment_interval;
-      service_payment_unit.value = event.params.service.payment_unit;
+      params = event.params;
     } else if (event.type === "keydown" && event.key === "Enter") {
       if (this.selectedItem) {
-        const params = JSON.parse(
+        params = JSON.parse(
           this.selectedItem.getAttribute("data-preset-service-param"),
         );
-        subscription_service_price.value = params.price;
-        service_payment_interval.value = params.payment_interval;
-        service_payment_unit.value = params.payment_unit;
       }
+    }
+
+    if (params) {
+      subscription_service_price.value = params.service.price;
+      service_payment_interval.value = params.service.payment_interval;
+      service_payment_unit.value = params.service.payment_unit;
+      service_monetary_unit.value = params.service.monetary_unit;
     }
   }
 
